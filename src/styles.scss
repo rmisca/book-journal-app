@@ -1,1 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+}
+
+@for $i from 0 through 10 {
+  .pt-4-#{$i} {
+    padding-top: #{$i*4}px !important;
+  }
+
+  .pr-4-#{$i} {
+    padding-right: #{$i*4}px !important;
+  }
+
+  .pb-4-#{$i} {
+    padding-bottom: #{$i*4}px !important;
+  }
+
+  .pl-4-#{$i} {
+    padding-left: #{$i*4}px !important;
+  }
+
+  .pt-10-#{$i} {
+    padding-top: #{$i*10}px !important;
+  }
+
+  .pr-10-#{$i} {
+    padding-right: #{$i*10}px !important;
+  }
+
+  .pb-10-#{$i} {
+    padding-bottom: #{$i*10}px !important;
+  }
+
+  .pl-10-#{$i} {
+    padding-left: #{$i*10}px !important;
+  }
+
+  // margin
+  .mt-4-#{$i} {
+    margin-top: #{$i*4}px !important;
+  }
+
+  .mr-4-#{$i} {
+    margin-right: #{$i*4}px !important;
+  }
+
+  .mb-4-#{$i} {
+    margin-bottom: #{$i*4}px !important;
+  }
+
+  .ml-4-#{$i} {
+    margin-left: #{$i*4}px !important;
+  }
+
+  .mt-10-#{$i} {
+    margin-top: #{$i*10}px !important;
+  }
+
+  .mr-10-#{$i} {
+    margin-right: #{$i*10}px !important;
+  }
+
+  .mb-10-#{$i} {
+    margin-bottom: #{$i*10}px !important;
+  }
+
+  .ml-10-#{$i} {
+    margin-left: #{$i*10}px !important;
+  }
+}

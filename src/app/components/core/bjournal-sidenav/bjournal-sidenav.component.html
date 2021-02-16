@@ -1,0 +1,26 @@
+<p-sidebar [(visible)]="visibleSidebar1" [modal]="false" [showCloseIcon]="false" [style]="{'margin-top': '115px'}">
+  <h1 style="font-weight:normal">MENU</h1>
+  <ul class="icon-menu-size">
+    <li class="pa-4-1">
+      <a routerLink="/history-books">
+        <i class="pi pi-book"></i>
+        <span>My books</span>
+      </a>
+    </li>
+    <li class="pa-4-1">
+      <a routerLink="/add-book">
+        <i class="pi pi-plus"></i>
+        <span>Add book</span>
+      </a>
+    </li>
+    <li class="pa-4-1">
+      <a routerLink="reviews">
+        <i class="pi pi-star-o"></i>
+        <span>Reviews</span>
+      </a>
+    </li>
+  </ul>
+
+</p-sidebar>
+
+<!--<p-button type="button" (click)="visibleSidebar1 = true" icon="pi pi-arrow-right"></p-button>-->
