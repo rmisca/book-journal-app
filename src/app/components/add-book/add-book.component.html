@@ -6,24 +6,22 @@
   </div>
   <div class="p-field p-col-12 p-md-6">
     <label for="lastname">Author</label>
-    <input id="lastname" type="text" pInputText>
+    <input formControlName="bookAuthor" id="lastname" type="text" pInputText>
   </div>
   <div class="p-field p-col-12">
     <label for="address">Enter your review about book</label>
-    <textarea id="address" type="text" rows="4" pInputTextarea></textarea>
+    <textarea formControlName="bookReview" id="address" type="text" rows="4" pInputTextarea></textarea>
   </div>
 <!--  <div class="p-field p-col-12 p-md-6">-->
 <!--    <label for="city">City</label>-->
 <!--    <input id="city" type="text" pInputText>-->
 <!--  </div>-->
-<!--  <div class="p-field p-col-12 p-md-3">-->
-<!--    <label for="state">State</label>-->
-<!--    <p-dropdown inputId="state" [options]="states"  placeholder="Select" optionLabel="name"></p-dropdown>-->
-<!--  </div>-->
-<!--  <div class="p-field p-col-12 p-md-3">-->
-<!--    <label for="zip">Zip</label>-->
-<!--    <input id="zip" type="text" pInputText>-->
-<!--  </div>-->
+  <div class="p-field p-col-12 p-md-3">
+    <label>Status</label>
+    <p-dropdown  formControlName="bookStatus" inputId="status"
+                 [options]="status"
+                 placeholder="Select" optionLabel="displayValue"></p-dropdown>
+  </div>
 </div>
 
 <p-button (click)="addDataToFirestore()">Save</p-button>

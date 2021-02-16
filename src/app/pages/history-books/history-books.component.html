@@ -1,1 +1,7 @@
-<p>history-books works!</p>
+<div class="mt-10-1">
+  <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+</div>
+
+<p *ngFor="let book of books">
+  {{ book.bookTitle}}
+</p>
