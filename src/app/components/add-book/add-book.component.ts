@@ -18,16 +18,18 @@ export class AddBookComponent implements OnInit {
 
   status: any[] = [
     {displayValue: 'Read', realValue: 'read'},
-    {displayValue: 'Currently Read', realValue: 'currently_read'},
+    {displayValue: 'Currently Reading', realValue: 'currently_reading'},
     {displayValue: 'Want to Read', realValue: 'want_to_read'},
   ];
 
   constructor(private bookService: BookService) { }
   form = new FormGroup({
-    bookTitle: new FormControl('test'),
+    bookTitle: new FormControl(''),
     bookAuthor: new FormControl(''),
     bookReview: new FormControl(''),
     bookStatus: new FormControl(''),
+    startDate: new FormControl(''),
+    finishDate: new FormControl(''),
   });
   ngOnInit(): void {
   }
@@ -40,4 +42,5 @@ export class AddBookComponent implements OnInit {
       .then(res => {
       });
   }
+
 }

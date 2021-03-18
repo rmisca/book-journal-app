@@ -1,5 +1,5 @@
 <div [formGroup]="form" class="p-fluid p-formgrid p-grid">
-  <h2>Add new book</h2>
+  <div class="p-col-12"><h2>Add new book</h2></div>
   <div class="p-field p-col-12 p-md-6">
     <label for="firstname">Title</label>
     <input formControlName="bookTitle" id="firstname" type="text" pInputText>
@@ -12,15 +12,19 @@
     <label for="address">Enter your review about book</label>
     <textarea formControlName="bookReview" id="address" type="text" rows="4" pInputTextarea></textarea>
   </div>
-<!--  <div class="p-field p-col-12 p-md-6">-->
-<!--    <label for="city">City</label>-->
-<!--    <input id="city" type="text" pInputText>-->
-<!--  </div>-->
-  <div class="p-field p-col-12 p-md-3">
+  <div class="p-field p-col-12 p-md-4">
     <label>Status</label>
     <p-dropdown  formControlName="bookStatus" inputId="status"
                  [options]="status"
                  placeholder="Select" optionLabel="displayValue"></p-dropdown>
+  </div>
+  <div class="p-field p-col-12 p-md-4">
+    <label>Select start date</label>
+    <p-calendar formControlName="startDate" [monthNavigator]="true" [showIcon]="true" [yearNavigator]="true" yearRange="2000:2030" inputId="selectStartDate"></p-calendar>
+  </div>
+  <div class="p-field p-col-12 p-md-4">
+    <label>Select finish date</label>
+    <p-calendar formControlName="finishDate" [monthNavigator]="true" [showIcon]="true" [yearNavigator]="true" yearRange="2000:2030" inputId="selectFinishDate"></p-calendar>
   </div>
 </div>
 

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {BookService} from '../../service/book.service';
 import {IBook} from '../../components/add-book/add-book.component';
+import {TabMenu} from 'primeng/tabmenu';
 
 
 @Component({
@@ -10,30 +11,44 @@ import {IBook} from '../../components/add-book/add-book.component';
   styleUrls: ['./history-books.component.scss']
 })
 export class HistoryBooksComponent implements OnInit {
-  items: MenuItem[];
+  items: MenuItem[] = [];
 
-  activeItem: MenuItem;
+  activeItem: MenuItem = {};
 
-  books: IBook[];
+  books: IBook[] = [];
+
+  filterBooks: IBook[] = [];
 
   constructor(private bookService: BookService) { }
 
   ngOnInit() {
     this.items = [
-      {label: 'All', icon: 'pi pi-fw pi-home'},
-      {label: 'Read', icon: 'pi pi-fw pi-calendar'},
-      {label: 'Currently Reading', icon: 'pi pi-fw pi-pencil'},
-      {label: 'Want to Read', icon: 'pi pi-fw pi-file'},
+      {label: 'All', icon: 'pi pi-fw pi-home', id: 'all'},
+      {label: 'Read', icon: 'pi pi-fw pi-calendar', id: 'read'},
+      {label: 'Currently Reading', icon: 'pi pi-fw pi-pencil', id: 'currently_reading'},
+      {label: 'Want to Read', icon: 'pi pi-fw pi-file', id: 'want_to_read'},
     ];
 
     this.activeItem = this.items[0];
     this.showBooks();
   }
 
-  showBooks() {
-  this.bookService.getBooks()
-    .subscribe(data => {
-      this.books = data;
-    })
+  showBooks(): void {
+    this.bookService.getBooks()
+      .subscribe((data: IBook[]) => {
+        this.books = data;
+        this.filterBooks = data;
+      });
+  }
+
+  filterBook(status: TabMenu): void {
+    const statusValue: string | undefined = status.activeItem.id;
+    if (statusValue === 'all') {
+      this.filterBooks = this.books;
+    } else {
+      this.bookService.getBooksByStatus(statusValue).subscribe(filteredBooks => {
+        this.filterBooks = filteredBooks;
+      });
+    }
   }
 }

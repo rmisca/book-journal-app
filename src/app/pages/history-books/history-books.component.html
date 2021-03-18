@@ -1,7 +1,7 @@
 <div class="mt-10-1">
-  <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+  <p-tabMenu  [model]="items" [activeItem]="activeItem" #tabFilter (click)="filterBook(tabFilter)">
+  </p-tabMenu>
 </div>
-
-<p *ngFor="let book of books">
+<p *ngFor="let book of filterBooks">
   {{ book.bookTitle}}
 </p>

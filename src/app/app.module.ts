@@ -24,6 +24,11 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
 import {ReactiveFormsModule} from '@angular/forms';
 import {TabMenuModule} from 'primeng/tabmenu';
+import {CalendarModule} from 'primeng/calendar';
+import { CreateChallengeComponent } from './components/create-challenge/create-challenge.component';
+import { CreateChallengePageComponent } from './pages/create-challenge-page/create-challenge-page.component';
+import {A11yModule} from '@angular/cdk/a11y';
+import {CheckboxModule} from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,9 @@ import {TabMenuModule} from 'primeng/tabmenu';
     HistoryBooksComponent,
     AddBookComponent,
     ReviewsComponent,
-    AddBookPageComponent
+    AddBookPageComponent,
+    CreateChallengeComponent,
+    CreateChallengePageComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +59,9 @@ import {TabMenuModule} from 'primeng/tabmenu';
     AngularFirestoreModule,
     ReactiveFormsModule,
     TabMenuModule,
+    CalendarModule,
+    A11yModule,
+    CheckboxModule,
 
   ],
   providers: [],
