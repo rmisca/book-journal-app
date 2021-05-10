@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>Welcome on Book Journal App</h1>
+
+  <div class="p-grid p-fluid">
+    <div class="p-col-6 p-offset-3">
+      <div class="p-inputgroup">
+        <button label="Search" pButton pRipple type="button"></button>
+        <input pInputText placeholder="Keyword" type="text">
+      </div>
+    </div>
+  </div>
+
+  <div class="block-div">
+  <div>
+    Currently reading
+    <div>
+      <p *ngFor="let book of filterBooks">
+        {{ book.bookTitle}}
+      </p>
+    </div>
+  </div>
+
+  <div class="verticalLine"></div>
+  <div>
+    Reading challenges
+    <div>
+     {{read}} / {{countBooks}} Challenge
+      <p-progressBar [value]="value"></p-progressBar>
+
+    </div>
+  </div>
+  <div class="verticalLine"></div>
+
+  <div>
+    Bookshelves
+    <div>
+      <ul>
+        <li>Want to read: {{wantToRead}} </li>
+        <li>Currently reading: {{currentlyReading}}</li>
+        <li>Read: {{read}}</li>
+      </ul>
+    </div>
+  </div>
+
+
+</div>
+
+</div>
+

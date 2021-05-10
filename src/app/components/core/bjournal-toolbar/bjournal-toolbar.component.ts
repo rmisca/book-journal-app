@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-bjournal-toolbar',
@@ -9,7 +10,7 @@ import {MenuItem} from 'primeng/api';
 export class BjournalToolbarComponent implements OnInit {
   items: MenuItem[] = [];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.items = [
@@ -34,4 +35,11 @@ export class BjournalToolbarComponent implements OnInit {
     ];
   }
 
+  loginPage() {
+    this.router.navigate(['/login']);
+  }
+
+  navigateHome() {
+    this.router.navigate(['/']);
+  }
 }

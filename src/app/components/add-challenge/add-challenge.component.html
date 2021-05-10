@@ -1,0 +1,13 @@
+<h3>Challenge yourself to read more!</h3>
+<div [formGroup]="form" class="p-fluid p-formgrid p-grid">
+  <div class="p-field p-col-12 p-md-6">
+    <label for="firstname">I want to read </label>
+    <input formControlName="howManyBooks" id="firstname" type="text" placeholder="How many books" pInputText>
+  </div>
+  <div class="p-field p-col-12 p-md-6">
+    <label for="lastname">books in</label>
+    <input formControlName="addTheYear" id="lastname" type="text" placeholder="Write the current year" pInputText>
+  </div>
+</div>
+
+<p-button (click)="addChallengeToFirestore()">Save</p-button>

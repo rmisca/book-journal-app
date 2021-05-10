@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {BookService} from '../../service/book.service';
-import {IBook} from '../../components/add-book/add-book.component';
+import {IBook} from '../add-book/add-book.component';
 import {TabMenu} from 'primeng/tabmenu';
 
 
@@ -21,7 +21,7 @@ export class HistoryBooksComponent implements OnInit {
 
   constructor(private bookService: BookService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.items = [
       {label: 'All', icon: 'pi pi-fw pi-home', id: 'all'},
       {label: 'Read', icon: 'pi pi-fw pi-calendar', id: 'read'},

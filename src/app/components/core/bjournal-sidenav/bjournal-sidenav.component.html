@@ -1,4 +1,8 @@
-<p-sidebar [(visible)]="visibleSidebar1" [modal]="false" [showCloseIcon]="false" [style]="{'margin-top': '115px'}">
+<!--
+this is applied on p-sidebar after [visible]
+[modal]="false" [showCloseIcon]="false"
+-->
+<p-sidebar [(visible)]="visibleSidebar1"  [style]="{'margin-top': '115px'}">
   <h1 style="font-weight:normal">MENU</h1>
   <ul class="icon-menu-size">
     <li class="pa-4-1">
@@ -29,4 +33,4 @@
 
 </p-sidebar>
 
-<!--<p-button type="button" (click)="visibleSidebar1 = true" icon="pi pi-arrow-right"></p-button>-->
+<p-button type="button" (click)="visibleSidebar1 = true" icon="pi pi-arrow-right"></p-button>

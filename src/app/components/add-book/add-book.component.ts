@@ -32,8 +32,15 @@ export class AddBookComponent implements OnInit {
     finishDate: new FormControl(''),
   });
   ngOnInit(): void {
+
   }
 
+  apiBooks() {
+    this.bookService.getBook('Hercule')
+      .subscribe(data => {
+        console.log(data);
+      });
+  }
   addDataToFirestore(): void{
     const data: IBook = this.form.value;
     console.log(data);
@@ -41,6 +48,15 @@ export class AddBookComponent implements OnInit {
     this.bookService.createNewBook(data)
       .then(res => {
       });
+    // this.requiredData();
   }
+  //
+  // requiredData(): void {
+  //   const dataValue: IBook = this.form.value;
+  //   console.log(dataValue.bookTitle);
+  //   // if (dataValue === '') {
+  //   //   return
+  //   // }
+  // }
 
 }
