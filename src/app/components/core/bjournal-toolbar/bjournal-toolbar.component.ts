@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import {Router} from '@angular/router';
+import {AuthService} from '../../../service/auth.service';
 
 @Component({
   selector: 'app-bjournal-toolbar',
@@ -10,36 +11,41 @@ import {Router} from '@angular/router';
 export class BjournalToolbarComponent implements OnInit {
   items: MenuItem[] = [];
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    public authService: AuthService
+  ) { }
 
   ngOnInit(): void {
     this.items = [
       {
-        label: 'Update',
-        icon: 'pi pi-refresh'
+        id: 'profile',
+        label: 'Profile',
+        icon: 'pi pi-user',
+        routerLink: '/profile'
       },
-      {
-        label: 'Delete',
-        icon: 'pi pi-times'
-      },
-      {
-        label: 'Angular Website',
-        icon: 'pi pi-external-link',
-        url: 'http://angular.io'
-      },
-      {
-        label: 'Router',
-        icon: 'pi pi-upload',
-        routerLink: '/fileupload'
-      }
+        {
+          id: 'sign-out',
+          label: 'Sign out',
+          icon: 'pi pi-sign-out',
+          command: () => this.signOut()
+        },
     ];
   }
 
-  loginPage() {
-    this.router.navigate(['/login']);
+  signInPage(): void {
+    this.router.navigate(['/sign-in']);
   }
 
-  navigateHome() {
+  navigateHome(): void {
     this.router.navigate(['/']);
+  }
+
+  signOut(): void {
+    this.authService.SignOut();
+  }
+
+  getUserInitials() {
+   return this.authService.userData.email[0];
   }
 }

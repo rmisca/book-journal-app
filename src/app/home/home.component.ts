@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   item: MenuItem[] = [];
   books: IBook[] = [];
   filterBooks: IBook[] = [];
-  currentlyReading = 0;
+  currentlyReading: any;
   read = 0;
   wantToRead = 0;
   value = 0;
@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit {
   //   });
   // }
 
-  progressBar(){
+  progressBar(): any{
     this.value = this.read / this.countBooks * 100;
   }
 }

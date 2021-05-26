@@ -14,7 +14,7 @@ import {SplitButtonModule} from 'primeng/splitbutton';
 import {ToolbarModule} from 'primeng/toolbar';
 import { HistoryBooksComponent } from './components/history-books/history-books.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
-import { ReviewsComponent } from './components/reviews/reviews.component';
+import { NotesComponent } from './components/notes/notes.component';
 import { AddBookPageComponent } from './pages/add-book-page/add-book-page.component';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextModule} from 'primeng/inputtext';
@@ -30,9 +30,8 @@ import { ChallengePageComponent } from './pages/challenge-page/challenge-page.co
 import {A11yModule} from '@angular/cdk/a11y';
 import {CheckboxModule} from 'primeng/checkbox';
 import { HistoryBooksPageComponent } from './pages/history-books-page/history-books-page.component';
-import { ReviewsPageComponent } from './pages/reviews-page/reviews-page.component';
+import { NotesPageComponent } from './pages/notes-page/notes-page.component';
 import { AddChallengeComponent } from './components/add-challenge/add-challenge.component';
-import { LoginComponent } from './login/login.component';
 import {CardModule} from 'primeng/card';
 import {PasswordModule} from 'primeng/password';
 import {HttpClientModule} from '@angular/common/http';
@@ -40,6 +39,17 @@ import { HomeComponent } from './home/home.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import {ProgressBarModule} from 'primeng/progressbar';
 import {MessageService} from 'primeng/api';
+import {MenuModule} from 'primeng/menu';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import {AuthService} from './service/auth.service';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import {AvatarModule} from 'primeng/avatar';
 
 @NgModule({
   declarations: [
@@ -49,16 +59,22 @@ import {MessageService} from 'primeng/api';
     BjournalContentComponent,
     HistoryBooksComponent,
     AddBookComponent,
-    ReviewsComponent,
+    NotesComponent,
     AddBookPageComponent,
     ChallengeComponent,
     ChallengePageComponent,
     HistoryBooksPageComponent,
-    ReviewsPageComponent,
+    NotesPageComponent,
     AddChallengeComponent,
-    LoginComponent,
     HomeComponent,
-    HomePageComponent
+    HomePageComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    SignInComponent,
+    DashboardComponent,
+    VerifyEmailComponent,
+    ProfileComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +90,7 @@ import {MessageService} from 'primeng/api';
     InputTextareaModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     ReactiveFormsModule,
     TabMenuModule,
     CalendarModule,
@@ -82,10 +99,15 @@ import {MessageService} from 'primeng/api';
     CardModule,
     PasswordModule,
     HttpClientModule,
-    ProgressBarModule
+    ProgressBarModule,
+    MenuModule,
+    AvatarModule
 
   ],
-  providers: [MessageService],
+  providers: [
+    MessageService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

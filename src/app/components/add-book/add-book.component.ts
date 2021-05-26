@@ -5,8 +5,8 @@ import {FormControl, FormGroup} from '@angular/forms';
 export interface IBook {
   bookTitle: string;
   bookAuthor: string;
-  bookReview: string;
-  bookStatus: string;
+  bookNotes: string;
+  bookStatus: any;
 }
 
 @Component({
@@ -26,7 +26,7 @@ export class AddBookComponent implements OnInit {
   form = new FormGroup({
     bookTitle: new FormControl(''),
     bookAuthor: new FormControl(''),
-    bookReview: new FormControl(''),
+    bookNotes: new FormControl(''),
     bookStatus: new FormControl(''),
     startDate: new FormControl(''),
     finishDate: new FormControl(''),
