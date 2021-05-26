@@ -1,0 +1,45 @@
+<div class="p-grid">
+
+  <p-card [style]="{width: '400px'}" class="p-offset-3">
+
+    <div [formGroup]="form" styleClass="p-card-shadow">
+
+      <h3>Sign In</h3>
+
+      <div class="p-fluid p-formgrid">
+
+        <div class="p-field p-col-12">
+          <label for="username">Username</label>
+          <input formControlName="username" id="username" type="text" pInputText #userName required>
+        </div>
+
+        <div class="p-field p-col-12">
+          <label for="password">Password</label>
+          <p-password formControlName="password" id="password" [toggleMask]="true" #userPassword></p-password>
+        </div>
+
+        <!-- Calling SignIn Api from AuthService -->
+        <div class="p-col-12">
+          <button type="button" pButton class="p-button-raised" label="Sign in" (click)="authService.SignIn(userName.value, userPassword.input.nativeElement.value)"></button>
+        </div>
+      </div>
+
+        <p class="rm-align">Or sign in with</p>
+
+      <!-- Calling GoogleAuth Api from AuthService -->
+      <div class="p-d-flex p-jc-center">
+
+      <div class="p-field p-mr-2">
+        <button pButton type="button" class="p-button-raised button-rm" label="Google" (click)="authService.GoogleAuth()"></button>
+      </div>
+
+    </div>
+      <p class="rm-align"> Forgot <a routerLink="/forgot-password"> Password?</a></p>
+
+    </div>
+
+    <p class="rm-align">Don't have an account? <a class="redirect" routerLink="/register-user"> Sign Up</a></p>
+
+  </p-card>
+
+</div>

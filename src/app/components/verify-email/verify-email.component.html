@@ -1,0 +1,29 @@
+<div class="p-grid">
+
+  <p-card [style]="{width: '400px'}" class="p-offset-3">
+
+    <div [formGroup]="form">
+
+      <h3>Thank You for Registering</h3>
+
+      <div class="p-fluid p-formgrid">
+
+        <div class="p-field p-col-12" *ngIf="authService.userData as user">
+          <p class="rm-align">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
+          <p class="rm-align">Please check your email and click on the link to verfiy your email address.</p>
+        </div>
+
+        <!-- Calling SendVerificationMail() method using authService Api -->
+        <div class="p-col-12">
+<!--          <button pButton type="button" class="p-button-raised" label="Resend Verification Email" (click)="authService.SendVerificationMail()"></button>-->
+        </div>
+
+      </div>
+
+    </div>
+
+      <p class="rm-align">Go back to?<a class="redirect" routerLink="/sign-in"> Sign in</a></p>
+
+  </p-card>
+
+</div>
